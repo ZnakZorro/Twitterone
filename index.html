@@ -22,13 +22,13 @@ p {margin:0;}
 p.v{font-size:0.88em;}
 p.v img {width:48px !important; float:left; margin-right:4px !important;}
 .span4 {
-	/*min-height:175px; */
 	margin-left:10px;
 }
-.well {padding:5px;}
-.navbar .nav > li > a {padding:8px;}
+.well {padding:5px; margin-bottom: 5px;}
+
+.navbar .nav > li > a {padding:4px; border:1px solid #eee; margin:2px;}
 @media (max-width: 979px) {
-	.span4 {min-height:195px; margin-left:5px;}
+	.span4 {margin-left:5px;}
 	
 			body{margin-top:6px;}
 			.navbar .btn-navbar {display: none;}
@@ -57,28 +57,29 @@ new Request.JSONP({
   onComplete: function(tweets) {
   var out='';
   //console.log(tweets);
+		var j=0;
 		tweets.results.each(function(tweet){ 
-		//console.log(tweet);
-		var opis=tweet.text+' ';
-		opis=opis.replace(/http:\/\/(.*?)\s/, function(match){return ('<a target="_blank" href="' + match+'">'+match+'</a>');})
-		out+='<div class="span4 item">';
-		out+='<div class="well">';
-		out+='<p class="v"><img src="'+tweet.profile_image_url+'" align="left" /> <b>{'+tweet.from_user+'}</b> ['+tweet.created_at+']</p>';
-		out+='<p class="t">'+opis+'</p>';
-		out+='</div>';
-		out+='</div>';
+			//console.log(tweet);
+			j++;
+			var opis=tweet.text+' ';
+			opis=opis.replace(/http:\/\/(.*?)\s/, function(match){return ('<a target="_blank" href="' + match+'">'+match+'</a>');})
+			out+='<div class="span4 item">';
+			out+='<div class="well">';
+			out+='<p class="v"><img src="'+tweet.profile_image_url+'" align="left" /> <b>'+j+'. {'+tweet.from_user+'}</b> ['+tweet.created_at+']</p>';
+			out+='<p class="t">'+opis+'</p>';
+			out+='</div>';
+			out+='</div>';
 		})
 	document.id('tweets').set('html',out);
 	
-    //console.info("Twitter returned: ",tweets);
-	griduj();
+
   }
 }).send();
 })
 </script> 
 
 <body>
-<a href="twitter.html" class="btn"> TWITTER</a>
+
 <div class="navbar navbar-fixed-top">
 
 	<div class="navbar-inner">
@@ -131,26 +132,7 @@ new Request.JSONP({
 </div>
 
 
-<script src="jquery.min.js"></script>
-<script>
-	//jQuery.noConflict();
-</script>
-<script src="jquery.grid-a-licious.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function () {
-
-	});
-	
-	
-function griduj(){
-		$("#tweets").gridalicious({
-			width: 350,
-			gutter: 5,
-			animate: true,
-			selector: '.span4'
-		});
-}	
-</script>
+<a href="twitter.html" class="btn"> TWITTER</a>
 
 </body> 
 </html> 
