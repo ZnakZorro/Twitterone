@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.zztwitterone"
+        versionCode="10" 
+        version   = "0.0.1">
+
+    <name>zzTwitterOne</name>
+
+    <description>
+        zzTwitterOne
+    </description>
+
+    <author href="http://zszczech.zut.edu.pl/git" email="zs@g.pl">
+        ZnakZorro
+    </author>
+    <preference name="phonegap-version" value="2.2.0" />
+    <preference name="orientation"      value="portrait" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+	
+		<icon src="icon.png" />
+		<icon src="icon.png" gap:platform="android" gap:density="ldpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="mdpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="hdpi" />
+		<icon src="icon.png" gap:platform="android" gap:density="xhdpi" />
+ 
+</widget>

@@ -1,0 +1,125 @@
+<html lang=pl> 
+<head> 
+	<meta charset="utf-8">
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<title>twitter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="twitter">
+	<meta name="author" content="zs">
+	
+	<link href="bootstrap-combined.min.css" rel="stylesheet">	
+	<!--link href="//www.wi.zut.edu.pl/cdn/_/grid-a-licious/style.css" rel="stylesheet"-->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<style>
+body{margin-top:50px;}
+div.tweet img {width:48px; height:48px;padding-right:1em}
+p {margin:0;}
+p.v{font-size:0.88em;}
+p.v img {width:48px !important; float:left; margin-right:4px !important;}
+.span4 {
+	margin-left:10px;
+}
+.well {padding:5px; margin-bottom: 5px;}
+.navbar .nav > li > a {padding:4px; border:1px solid #eee; margin:2px;}
+@media (max-width: 979px) {
+	.span4 {margin-left:5px;}
+	
+			body{margin-top:6px;}
+			.navbar .btn-navbar {display: none;}
+			.nav-collapse, .nav-collapse.collapse {overflow:auto;height: auto; float:left;}
+			.nav-collapse .nav > li {float: left;}
+}
+@media (max-width: 767px) {
+	.span4 {min-height:auto; margin-left:0px;}
+}
+</style>
+<!--link href="rhythm.css" rel="stylesheet"-->	
+<script src="mootools-yui-compressed.js"></script>
+<script type="text/javascript" src="mootools-more-1.3.2.1.js"></script>
+<script type="text/javascript"> 
+
+function twituj(co){
+	console.log(co);
+}
+
+
+
+//var precz=['Infoekspres','TaxiPolska','dc_szczecin'];
+//console.log(precz[0]);
+//console.log(precz[1]);
+
+window.addEvent('domready', function() {
+new Request.JSONP({
+  url: "http://search.twitter.com/search.json",
+  data: {
+    q: "#Szczecin -dc_szczecin -CiteamPolska"
+  },
+  onComplete: function(tweets) {
+  var out='';
+  //console.log(tweets);
+		var j=0;
+		tweets.results.each(function(tweet){ 
+			//console.log(tweet);
+			j++;
+			var opis=tweet.text+' ';
+			opis=opis.replace(/http:\/\/(.*?)\s/, function(match){return ('<a target="_blank" href="' + match+'">'+match+'</a>');})
+			out+='<div class="span4 item">';
+			out+='<div class="well">';
+			out+='<p class="v"><img src="'+tweet.profile_image_url+'" align="left" /> <b>'+j+'. {'+tweet.from_user+'}</b> ['+tweet.created_at+']</p>';
+			out+='<p class="t">'+opis+'</p>';
+			out+='</div>';
+			out+='</div>';
+		})
+	document.id('tweets').set('html',out);
+	
+  }
+}).send();
+})
+</script> 
+<body>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+	<div class="container">
+	
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
+		
+		<div class="nav-collapse">
+			<ul class="nav">
+			
+				<li><a href="javascript:void(0)" onClick="twituj('Polska');">Polska</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('Szczecin');">Szczecin </a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('wizut');">WIZUT</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('from:Joomla');">#!</a></li> 
+				<li><a href="javascript:void(0)" onClick="twituj('Joomla')">Joomla</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('Mootools')">Mootools </a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('jquery')">jQuery </a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('twitter%20bootstrap')">Bootstrap</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('from%3Awyborcza')">#!</a></li> 
+				<li><a href="javascript:void(0)" onClick="twituj('gazeta_wyborcza')">Gazeta</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('Kindle')">Kindle</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('groupon_szczec')">GroupOn</a></li>
+				<li><a href="javascript:void(0)" onClick="twituj('from:sikorskiradek')">#!</a></li> 
+				<li><a href="javascript:void(0)" onClick="twituj('sikorskiradek')">Sikorski</a></li>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+	</div>
+</div>
+
+<div class="container">
+<h4 style="float:left; margin-right:1em; ">Tweets: Szczecin</h4>
+<form method="get"><input name="q" value="szczecin" /><input type="submit">
+</div>
+<div class="container">
+	<div id="tweets">
+	</div>	
+</div>
+<a href="twitter.html" class="btn"> TWITTER</a>
+</body> 
+</html> 

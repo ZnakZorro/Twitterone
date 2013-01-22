@@ -1,0 +1,135 @@
+#tbuzz_container a{
+    overflow: hidden !important;
+}
+
+#tbuzz_shadow_sides,
+#tbuzz_container{
+    position: fixed !important;
+    /*height: 576px !important;*/
+    top: 15px !important;
+}
+
+#tbuzz_shadow_sides{
+    right: 2px !important;
+    width: 446px !important;
+    z-index: 9999999 !important;
+    background: url(http://tbuzz.arc90.com/css/i/shadow-sides.png) repeat-y left top !important;
+}
+
+#tbuzz_shadow_top{
+    position: fixed !important;
+    right: 2px !important;
+    top: 2px !important;
+    width: 446px !important;
+    height: 13px !important;
+    z-index: 9999999 !important;
+    background: url(http://tbuzz.arc90.com/css/i/shadow-top.png) no-repeat left top !important;
+}
+
+#tbuzz_shadow_bottom{
+    position: fixed !important;
+    right: 2px !important;
+    width: 446px !important;
+    height: 13px !important;
+    z-index: 9999999 !important;
+    background: url(http://tbuzz.arc90.com/css/i/shadow-bottom.png) no-repeat left bottom !important;
+}
+
+#tbuzz_container{
+    background-color: #fff !important;
+    right: 15px !important;
+    width: 416px !important;
+    border: solid 2px #0860b2 !important;
+    z-index: 10000000 !important;
+}
+
+#tbuzz_header img{
+    position: absolute !important;
+    right: 75px !important;
+    top: 9px !important;
+    border: 0 !important;
+}
+
+#tbuzz_close{
+    position: absolute !important;
+    right: 7px !important;
+    top: 7px !important;
+    width: 38px !important;
+    height: 19px !important;
+    background: url(http://tbuzz.arc90.com/css/i/close.png) no-repeat left top !important;
+    text-indent: -99999px !important;
+}
+
+#tbuzz_popout{
+    position: absolute !important;
+    right: 51px !important;
+    top: 8px !important;
+    width: 17px !important;
+    height: 17px !important;
+    background: url(http://tbuzz.arc90.com/css/i/pop-out.png) no-repeat left top !important;
+    text-indent: -99999px !important;
+}
+
+#tbuzz_remote{
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+}
+
+#tbuzz_remote iframe{
+    margin: 5px 0 0 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    /*height: 530px !important;*/
+    border: 0 !important;
+    overflow: hidden !important;
+}
+
+#tbuzz_footer{
+    margin: 0 !important;
+    border-top: solid 1px #a0a1a3 !important;
+    list-style-type: none !important;
+    font-family: arial, sans-serif !important;
+    font-size: 10px !important;
+    color: #57a8c8 !important;
+    text-transform: uppercase !important;
+}
+
+#tbuzz_footer img{
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+#tbuzz_footer li{
+    background: none !important;
+    margin: 0 !important;
+    position: absolute !important;
+}
+
+#tbuzz_logo{
+    left: 7px !important;
+    bottom: 4px !important;
+}
+
+#tbuzz_copyright{
+    left: 70px !important;
+    bottom: 8px !important;
+}
+
+#tbuzz_twitter{
+    right: 60px !important;
+    bottom: 7px !important;
+    font-weight: bold !important;
+}
+
+#tbuzz_twitter a{
+    text-decoration: none !important;
+    color: #57a8c8 !important;
+}
+
+#tbuzz_arc90logo{
+    position: absolute !important;
+    right: 7px !important;
+    bottom: 3px !important;
+}

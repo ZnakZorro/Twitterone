@@ -1,0 +1,86 @@
+body
+{
+    background: url('underline.gif');
+    font-family: Calibri, Helvetica, Sans-Serif;
+    font-size: 75%;
+    line-height: 1.5em;
+}
+
+html>body
+{
+    font-size: 15px;
+}
+
+body, div, ul, ol, li h1, h2, h3, blockquote, img
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#content
+{
+    margin: 1.5em;
+    width: 45em;
+}
+
+h1
+{
+    font-size: 1.5em;
+    line-height: 1;
+    margin: 0 0 1em;
+}
+
+h2
+{
+    font-size: 1.1667em;
+    line-height: 1.286;
+    margin: 1.286em 0 0;
+}
+
+h3
+{
+    font-size: 1em;
+    margin: 1em 0;
+}
+
+p
+{
+    font-size: 1em;
+    margin: 1.5em 0;
+}
+
+blockquote
+{
+    margin: 1.5em;
+}
+
+ul
+{
+    margin: 1.5em;
+}
+
+.aside
+{
+    float: right;
+    margin: 0 0 1.5em 1.5em;
+    width: 10em;
+    font-style: italic;
+}
+
+img
+{
+    display: block;
+    margin: 0 auto;
+}
+
+pre
+{
+    overflow-x: auto;
+    margin: 1.5em 0;
+}
+
+object
+{
+    margin: 0 auto;
+}
