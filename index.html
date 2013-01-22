@@ -8,15 +8,14 @@
 	<meta name="author" content="zs">
 	<link href="bootstrap-combined.min.css" rel="stylesheet">	
 <style>
+
 .btn {margin:4px;}
-.well {padding: 4px; margin-bottom:4px; background-color: #f8f8f8;
+.wlee {padding: 4px; margin-bottom:4px; background-color: #f8f8f8;}
 
-
-@media (max-width: 979px) {
-}
-
-@media (max-width: 767px) {
-}
+/*
+@media (max-width: 979px) {}
+@media (max-width: 767px) {}
+*/
 </style>
 <script src="mootools-yui-compressed.js"></script>
 <script type="text/javascript" src="mootools-more-1.3.2.1.js"></script>
@@ -24,11 +23,14 @@
 
 //var precz=['Infoekspres','TaxiPolska','dc_szczecin'];
 
+//14.6,53.4
+
 function installTweet(co){
 var precz='%20-katalogreklam%20-groupon_szczec';
+var reszta='&lang=pl&geocode=54,14,1mi';
 new Request.JSONP({
   url: "http://search.twitter.com/search.json",
-  data: {q: co+precz},
+  data: {q: co, rpp:'100', locale:'pl'},
   onComplete: function(tweets) {
   var out='';
   //console.log(tweets);
@@ -38,11 +40,11 @@ new Request.JSONP({
 			j++;
 			var opis=tweet.text+' ';
 			opis=opis.replace(/http:\/\/(.*?)\s/, function(match){return ('<a target="_blank" href="' + match+'">'+match+'</a>');})
-			out+='<div class="span4 item">';
-			out+='<div class="well">';
-			out+='<p class="v"><img src="'+tweet.profile_image_url+'" align="left" /> <b>'+j+'. {'+tweet.from_user+'}</b> ['+tweet.created_at+']</p>';
-			out+='<p class="t">'+opis+'</p>';
-			out+='</div>';
+			out+='<div class="span4">';
+				out+='<div class="well">';
+					out+='<p class="v"><img src="'+tweet.profile_image_url+'" align="left" /> <b>'+j+'. {'+tweet.from_user+'}</b> ['+tweet.created_at+']</p>';
+					out+='<p class="t">'+opis+'</p>';
+				out+='</div>';
 			out+='</div>';
 		})
 	document.id('tweets').set('html',out);
@@ -61,7 +63,7 @@ twituj(document.getElementById('q').value);
 
 
 function twituj(co){
-	console.log(co);
+	//console.log(co);
 	document.getElementById('q').value=co;
 	installTweet(co);
 }
@@ -78,7 +80,7 @@ function twituj(co){
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">	
-				<input name="q" id="q" value="szczecin" /><button onClick="twituj(document.getElementById('q').value);" clas="btn btn-inverse">Wyślij</button>
+				<input name="q" id="q" value="szczecin" /><button onClick="twituj(document.getElementById('q').value);" class="btn btn-inverse">Wyślij</button>
 			</div>
 		</div>
 	</div>
