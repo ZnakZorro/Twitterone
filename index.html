@@ -8,9 +8,9 @@
 	<meta name="author" content="zs">
 	<link href="bootstrap-combined.min.css" rel="stylesheet">	
 <style>
-
+img {max-width:48px; margin-left:4px;}
 .btn {margin:4px;}
-.wlee {padding: 4px; margin-bottom:4px; background-color: #f8f8f8;}
+.well {padding: 4px; margin-bottom:4px; background-color: #f8f8f8;}
 
 /*
 @media (max-width: 979px) {}
@@ -40,7 +40,7 @@ new Request.JSONP({
 			j++;
 			var opis=tweet.text+' ';
 			opis=opis.replace(/http:\/\/(.*?)\s/, function(match){return ('<a target="_blank" href="' + match+'">'+match+'</a>');})
-			out+='<div class="span4">';
+			out+='<div class="span12">';
 				out+='<div class="well">';
 					out+='<p class="v"><img src="'+tweet.profile_image_url+'" align="left" /> <b>'+j+'. {'+tweet.from_user+'}</b> ['+tweet.created_at+']</p>';
 					out+='<p class="t">'+opis+'</p>';
@@ -48,8 +48,12 @@ new Request.JSONP({
 			out+='</div>';
 		})
 	document.id('tweets').set('html',out);
+	tweetstart();
+	
   }
-}).send();
+}
+
+).send();
 }
 
 window.addEvent('domready', function() {
@@ -70,15 +74,15 @@ function twituj(co){
 
 </script> 
 <body>
-	<div class="container-fluid">
-		<div class="row-fluid">
+	<div class="container">
+		<div class="row">
 			<div class="span12" id="linki">	</div>
 	</div>
 	</div>
 
 
-	<div class="container-fluid">
-		<div class="row-fluid">
+	<div class="container">
+		<div class="row">
 			<div class="span12">	
 				<input name="q" id="q" value="szczecin" /><button onClick="twituj(document.getElementById('q').value);" class="btn btn-inverse">Wyślij</button>
 			</div>
@@ -91,5 +95,41 @@ function twituj(co){
 	</div>
 
 <a href="twitter.html" class="btn"> TWITTER</a>
+
+
+
+
+
+<!--gggggggggggggggggggggggggggggggggggggggggggggggggggggggg-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="jquery.grid-a-licious.min.js"></script>
+
+<script type="text/javascript">
+
+	function tweetstart(){
+			$("#tweets").gridalicious({
+				width: 320,
+				gutter: 10,
+				animate: true,
+				selector: '.span12'
+			});
+
+	}
+
+	$(document).ready(function () {
+		/*
+		$("#tweets").gridalicious({
+			width: 320,
+			gutter: 10,
+			animate: true,
+			selector: '.span4'
+		});
+		*/
+	});
+	
+</script>
+<!--gggggggggggggggggggggggggggggggggggggggggggggggggggggggg-->
+
+
 </body> 
 </html> 
